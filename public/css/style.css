@@ -1,0 +1,71 @@
+* {
+    margin:0;
+    box-sizing: border-box;
+}
+
+.dark body {
+    background-color: black;
+}
+
+img {
+    height: 100%;
+    width: 20vw;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+.dark a, .dark h1 {
+    color: white;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+header a {
+    color: black;
+    padding: 5px;
+    margin-left: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.dark header a {
+    color: white;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#vw-pict {
+    width: 80vw;
+}
+
+form input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#flex-pict {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
