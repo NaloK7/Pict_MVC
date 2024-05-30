@@ -4,19 +4,17 @@
 
 <h1>Connexion</h1>
 <?php
-if (isset($result) & isset($emailError) & isset($passwordError)) {
-    if (!$emailError & !$passwordError) {
-        
-        if ($result) {
-    ?>
-            <p>Connexion reussi</p>
-        <?php
-        } else {
-        ?>
-            <p>Problème d'identification</p>
-        <?php
-        };
-    }
+// query connection made
+if (isset($result)) {
+    // result of query
+    if ($result) {
+?>
+        <p>Connexion reussi</p>
+<?php } else { ?>
+        <p>Problème d'identification</p>
+        <a href="./index.php?action=connection">retour</a>
+<?php };
+
 } else {
     ?>
     <form action="./index.php?action=checkConnection" method="post">
@@ -28,7 +26,11 @@ if (isset($result) & isset($emailError) & isset($passwordError)) {
         <?php }
         }; ?>
 
-        <input type="text" name="email" placeholder="email">
+        <input type="text" name="email" placeholder=<?php if (isset($emailError) & isset($passwordError) & isset($result)) { if (!$emailError & !$passwordError & !$result) {
+            echo $email;
+        }} else {
+            echo "email" ;
+        }?>>
 
 
         <label for="password">Mot de passe:</label>

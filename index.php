@@ -11,7 +11,8 @@ try {
         }
         elseif ($_GET['action'] == 'checkConnection') {
             $action = new UserController();
-            $action->queryCheckConnection();
+            $action->queryCheckConnection($_POST['email'], $_POST['password']);
+            
         }
     } else {
         $control = new ImageController();

@@ -17,7 +17,7 @@ class UserController extends Controller
      * checks for errors in email and password inputs, sanitizes
      * the inputs, and then checks the connection using a UserModel before loading the connection view.
      */
-    function queryCheckConnection()
+    function queryCheckConnection($email, $password)
     {
         $emailError =  false;
         $passwordError = false;
@@ -25,23 +25,22 @@ class UserController extends Controller
         $requiredField = '*champ requis';
 
         if (!empty($_POST['email'])) {
-            $email = $this->sanitize($_POST['email']);
+            $email = $this->sanitize($email);
         } else {
             $emailError = true;
         }
         if (!empty($_POST['password'])) {
-            $password = $this->sanitize($_POST['password']);
+            $password = $this->sanitize($password);
         } else {
             $passwordError = true;
         }
-        // check connection
+
+        
         if (!$emailError & !$passwordError) {
             $query = new UserModel();
             $result = $query->checkConnection($email, $password);
         }
-        //  else {
-        //     $result = false;
-        // }
+       
         require_once('./view/connectionView.php');
     }
 }
