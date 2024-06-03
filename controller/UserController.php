@@ -21,26 +21,30 @@ class UserController extends Controller
     {
         $emailError =  false;
         $passwordError = false;
-       
+
         $requiredField = '*champ requis';
 
-        if (!empty($_POST['email'])) {
-            $email = $this->sanitize($email);
+        if (!empty($email)) {
+            if (preg_match("/^[a-zA-Z]+[0-9a-zA-Z]*[.]*[0-9a-zA-Z]*(@)[a-z0-9A-Z.-]+[.]+([a-zA-Z]{2,})$/", $email)) {
+                $email = $this->sanitize($email);
+            }
         } else {
             $emailError = true;
         }
-        if (!empty($_POST['password'])) {
-            $password = $this->sanitize($password);
+        if (!empty($password)) {
+            if (preg_match("/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[@&#{([-|_\\)\]=}%?\/]).{12,}$/", $password)) {
+                $password = $this->sanitize($password);
+            }
         } else {
             $passwordError = true;
         }
 
-        
+
         if (!$emailError & !$passwordError) {
             $query = new UserModel();
             $result = $query->checkConnection($email, $password);
         }
-       
+
         require_once('./view/connectionView.php');
     }
 }
