@@ -20,4 +20,5 @@ class DB {
     
         return $connect;
     } 
+
 }

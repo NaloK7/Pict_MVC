@@ -11,13 +11,13 @@ if (!isset($_COOKIE["theme"])) {
             <a href='#'>inscription</a> <!-- todo: change href -->
             <a href='./index.php?action=connection'>connexion</a>
     </div>
-<?php } else { ?>
-    <a href='#'>ajouter une photo</a> <!-- todo: change href -->
-    <a href='./index.php?action=deconnection' id='deconnect'>deconnexion</a> <!-- todo: change href -->
-    <a href='#' id='profil'>profil</a></div> <!-- todo: change href -->
+    <?php } else { ?>
+        <a href='#'>ajouter une photo</a> <!-- todo: change href -->
+        <a href='./index.php?action=deconnection' id='deconnect'>deconnexion</a> <!-- todo: change href -->
+        <a href='#' id='profil'>profil</a></div> <!-- todo: change href -->
 
-<?php }; ?>
-<div id='nav3'>
-    <a href='#'>theme</a> <!-- todo: change href -->
-</div>
+    <?php }; ?>
+    <div id='nav3'>
+        <a href='#'>theme</a> <!-- todo: change href -->
+    </div>
 </header>
